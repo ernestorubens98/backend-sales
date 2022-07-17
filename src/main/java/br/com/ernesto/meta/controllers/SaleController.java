@@ -2,6 +2,9 @@ package br.com.ernesto.meta.controllers;
 
 import br.com.ernesto.meta.entities.Sale;
 import br.com.ernesto.meta.services.SaleService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,6 +22,10 @@ public class SaleController {
     private SaleService service;
 
     @GetMapping
+    @ApiResponses(value = {
+            @ApiResponse(code = 500, message = "Erro inesperado")
+    })
+    @ApiOperation(value = "Busca todas a vendas no intervalo informado.")
     public Page<Sale> findAllSales(
             @RequestParam(value = "minDate", defaultValue = "") String minDate,
             @RequestParam(value = "maxDate", defaultValue = "") String maxDate,
