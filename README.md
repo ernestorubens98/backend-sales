@@ -1,7 +1,7 @@
 # backend-sales
 API que mostra as vendas
 
-##DOCKER
+## DOCKER
 docker run --rm -p 80:80 -t backend:latest
 
 SWAGGER:
